@@ -13,7 +13,7 @@ let phrase = 0;
 let paragraph;
 let changedWPM = false;
 let restart = false;
-let pause = false;
+let pause = true;
 let firstStart = true;
 let prevDate;
 
@@ -45,9 +45,10 @@ function handler() {
     if (restart) {
         startReadingInterval();
     }
-    if (splittedText[phrase]!==undefined) {
+    if (splittedText[phrase] !== undefined) {
         paragraph.textContent = splittedText[phrase++];
     } else {
+        startStop();
         checkInterval();
     }
 }
@@ -81,10 +82,9 @@ function changeButtonText() {
 function startStop() {
     if (firstStart) {
         firstStart = false;
-        startReading();
-    } else {
-        pause = !pause;
     }
+    pause = !pause;
+    startReading();
     changeButtonText();
 }
 
@@ -105,7 +105,7 @@ function changeWPM(target) {
         wordsPerMinute = wpmValue;
         prevWordsPerMinute = wpmValue;
         changedWPM = true;
-        startReading();
+        startStop();
     }, 1000);
 }
 
