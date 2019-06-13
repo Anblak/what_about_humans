@@ -3,7 +3,9 @@ const msInMinute = 60 * 1000;
 const minWPM = 100;
 
 let interval;
+let changeTimeout;
 let wordsPerMinute = 100;
+let prevWordsPerMinute = 100;
 let splittedText = text.split(/\s/);
 let phrase = 0;
 let paragraph;
@@ -88,14 +90,21 @@ function startStop() {
  * @param target{HTMLInputElement}
  */
 function changeWPM(target) {
-    let wpmValue = target.value;
-    if(!wpmValue||wpmValue<minWPM) {
-        target.value = minWPM;
-        wpmValue = minWPM;
+    if (changeTimeout) {
+        clearTimeout(changeTimeout);
+        changeTimeout = null;
     }
-    wordsPerMinute = wpmValue;
-    changedWPM = true;
-    startReading();
+    changeTimeout = setTimeout(() => {
+        let wpmValue = target.value;
+        if (!wpmValue || wpmValue < minWPM) {
+            target.value = prevWordsPerMinute;
+            wpmValue = prevWordsPerMinute;
+        }
+        wordsPerMinute = wpmValue;
+        prevWordsPerMinute = wpmValue;
+        changedWPM = true;
+        startReading();
+    }, 1000);
 }
 
 document.onkeyup = (event) => {
