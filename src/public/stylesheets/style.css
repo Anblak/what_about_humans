@@ -3,6 +3,10 @@ body {
   background: black;
   font: 33px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: azure;
+  display: flex;
+  align-items: start;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
 
 a {
@@ -10,9 +14,7 @@ a {
 }
 
 .mainText {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  margin-top: -50px;
-  margin-left: -180px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
