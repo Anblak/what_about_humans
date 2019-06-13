@@ -11,9 +11,9 @@
   <p class="mainText"><span id="text"></span></p>
 <div>
   <label>Select number of words per minute
-    <input onchange="changeWPM(event.target.value)" type="number" min="100">
+    <input oninput="changeWPM(event.target.value)" type="number" min="100" value="100">
   </label>
-  <button onclick="startReading()">Start</button>
+  <button onclick="startStop()" id="start_button">Start</button>
 </div>
 </body>
 
