@@ -1,5 +1,6 @@
 const text = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem, commodi delectus expedita explicabo fugiat fugit harum illo labore maiores necessitatibus nisi, quos rem saepe similique voluptate. Ab incidunt odio soluta.";
 const msInMinute = 60 * 1000;
+const minWPM = 100;
 
 let interval;
 let wordsPerMinute = 100;
@@ -84,9 +85,14 @@ function startStop() {
 }
 
 /**
- * @param wpmValue{number}
+ * @param target{HTMLInputElement}
  */
-function changeWPM(wpmValue) {
+function changeWPM(target) {
+    let wpmValue = target.value;
+    if(!wpmValue||wpmValue<minWPM) {
+        target.value = minWPM;
+        wpmValue = minWPM;
+    }
     wordsPerMinute = wpmValue;
     changedWPM = true;
     startReading();
