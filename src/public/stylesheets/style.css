@@ -1,8 +1,18 @@
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: black;
+  font: 33px "Lucida Grande", Helvetica, Arial, sans-serif;
+  color: azure;
 }
 
 a {
   color: #00B7FF;
+}
+
+.mainText {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -180px;
 }
