@@ -1,0 +1,25 @@
+{
+  "name": "what_about_humans",
+  "version": "1.0.0",
+  "description": "fast reading muchacho",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Anblak/what_about_humans.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Anblak/what_about_humans/issues"
+  },
+  "homepage": "https://github.com/Anblak/what_about_humans#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0"
+  }
+}
