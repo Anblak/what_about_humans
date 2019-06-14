@@ -8,8 +8,9 @@ let interval;
 let changeTimeout;
 let wordsPerMinute = 100;
 let prevWordsPerMinute = 100;
-let splittedText = text.split(/\s/);
+let splittedText;
 let phrase = 0;
+let prevPhrase;
 let paragraph;
 let changedWPM = false;
 let restart = false;
@@ -37,6 +38,16 @@ function logDateDifference() {
     prevDate = new Date();
 }
 
+function selectSpan(id) {
+    document.getElementById(getSpanPhraseId(id)).setAttribute('class', 'current_phrase');
+}
+
+function deselectSpan(id) {
+    if (id !== undefined) {
+        document.getElementById(getSpanPhraseId(id)).removeAttribute('class');
+    }
+}
+
 function handler() {
     // logDateDifference();
     if (pause) {
@@ -46,8 +57,12 @@ function handler() {
         startReadingInterval();
     }
     if (splittedText[phrase] !== undefined) {
-        paragraph.textContent = splittedText[phrase++];
+            deselectSpan(prevPhrase);
+        selectSpan(phrase);
+        paragraph.textContent = splittedText[phrase];
+        prevPhrase = phrase++;
     } else {
+        deselectSpan(prevPhrase);
         startStop();
         checkInterval();
     }
@@ -109,8 +124,60 @@ function changeWPM(target) {
     }, 1000);
 }
 
+function processOwnText() {
+    let textAreaElement = document.getElementById("my_text");
+    if (textAreaElement.value === "") {
+        processText(text);
+    } else {
+        processText(textAreaElement.value);
+    }
+}
+
+function getSpanPhraseId(lastPhraseIdx) {
+    return `phrase-${lastPhraseIdx}`;
+}
+
+/**
+ * @param text{string}
+ */
+function processText(text) {
+    splittedText = text.split(/\s/).filter(value => value !== "");
+    let paragraphs = text.split('\n').map(value => value.split(/\s/).filter(value => value !== ""));
+    phrase = 0;
+    prevPhrase = undefined;
+    let textSearcher = document.getElementsByClassName('text_searcher').item(0);
+    while (textSearcher.firstChild) {
+        textSearcher.removeChild(textSearcher.firstChild);
+    }
+    let lastPhraseIdx = 0;
+    for (let one of paragraphs) {
+        for (let i = 0; i < one.length; lastPhraseIdx++, i++) {
+            let chars = one[i];
+            let span = document.createElement('span');
+            span.id = getSpanPhraseId(lastPhraseIdx);
+            span.innerText = chars;
+            span.onclick = (e) => selectPhrase(e.target);
+            textSearcher.appendChild(span);
+        }
+        let div = document.createElement('div');
+        div.style.width = 'inherit';
+        div.style.height = '.3vw';
+        textSearcher.appendChild(div);
+    }
+    restart = true;
+}
+
+function selectPhrase(target) {
+    phrase = +target.id.split('-')[1];
+    selectSpan(phrase);
+    deselectSpan(prevPhrase);
+}
+
 document.onkeyup = (event) => {
-    if (event.code === "Space" || event.code === "Enter") {
+    if (!(event.target instanceof HTMLTextAreaElement) && (event.code === "Space" || event.code === "Enter")) {
         startStop();
     }
 };
+setTimeout(() => {
+    processText(text);
+}, 1);

@@ -1,19 +1,29 @@
 <html>
 
 <head>
-  <title>Express reading</title>
-  <link rel="stylesheet" href="/stylesheets/style.css">
-  <script rel="script" src="/javascripts/reader.js"></script>
+    <title>Express reading</title>
+    <link href="/stylesheets/style.css" rel="stylesheet">
+    <script rel="script" src="/javascripts/reader.js"></script>
 </head>
 
 <body>
-  <h1>Express reading, read FAST as U CAN</h1>
-  <p class="mainText"><span id="text"></span></p>
 <div>
-  <label>Select number of words per minute
-    <input oninput="changeWPM(event.target)" type="number" min="100" value="100">
-  </label>
-  <button onclick="startStop()" id="start_button">Start</button>
+    <h1>Express reading, read FAST as U CAN</h1>
+    <p class="mainText"><span id="text"></span></p>
+</div>
+<div class="control_panel">
+    <div class="text_config">
+        <label>Select number of words per minute
+            <input min="100" oninput="changeWPM(event.target)" type="number" value="100">
+        </label>
+        <button id="start_button" onclick="startStop()">Start</button>
+        <div>
+            <label for="my_text">Insert your own text</label><textarea id="my_text"></textarea>
+            <button onclick="processOwnText()">Done</button>
+        </div>
+    </div>
+    <div class="text_searcher">
+    </div>
 </div>
 </body>
 

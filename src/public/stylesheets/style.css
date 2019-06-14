@@ -1,5 +1,6 @@
 body {
-  padding: 50px;
+  padding: 0;
+  margin: 0;
   background: black;
   font: 33px "Lucida Grande", Helvetica, Arial, sans-serif;
   color: azure;
@@ -13,8 +14,50 @@ a {
   color: #00B7FF;
 }
 
+.header{
+  height: 40vh;
+}
+
 .mainText {
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 20vh;
+  margin: 0;
+}
+
+.text_config{
+  width: 60vw;
+}
+
+.text_searcher{
+  width: 38vw;
+  padding: 1vw;
+  background-color: #7c7c7c;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: start;
+}
+
+.text_searcher>span{
+  font-size: large;
+  margin-right: .5vw;
+  cursor: pointer;
+}
+
+.text_searcher>span:hover{
+  background-color: cornflowerblue;
+}
+
+.control_panel{
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  height: 60vh;
+}
+
+.current_phrase{
+  background-color: #00B7FF;
 }

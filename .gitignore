@@ -83,3 +83,4 @@ npm-debug.log
 
 /src/bin/
 
+package-lock.json
