@@ -13,13 +13,18 @@
 </div>
 <div class="control_panel">
     <div class="text_config">
-        <label>Select number of words per minute
-            <input min="100" oninput="changeWPM(event.target)" type="number" value="100">
-        </label>
-        <button id="start_button" onclick="startStop()">Start</button>
         <div>
-            <label for="my_text">Insert your own text</label><textarea id="my_text"></textarea>
-            <button onclick="processOwnText()">Done</button>
+            <label>Select number of words per minute
+                <input class="input_style" min="100" oninput="changeWPM(event.target)" type="number" value="100">
+            </label>
+            <a id="start_button" class="btn btn-white btn-mid" onclick="startStop()">Start</a>
+        </div>
+        <div>
+            <label for="my_text">Insert your own text</label>
+            <div>
+                <textarea class="input_style" id="my_text"></textarea>
+                <a class="btn btn-white btn-mid" onclick="processOwnText()">Done</a>
+            </div>
         </div>
     </div>
     <div class="text_searcher">

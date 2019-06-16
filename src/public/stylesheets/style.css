@@ -1,63 +1,160 @@
 body {
-  padding: 0;
-  margin: 0;
-  background: black;
-  font: 33px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: azure;
-  display: flex;
-  align-items: start;
-  flex-wrap: wrap;
-  justify-content: space-around;
+    padding: 0;
+    margin: 0;
+    background: black;
+    font: 3vh "Lucida Grande", Helvetica, Arial, sans-serif;
+    color: azure;
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
 a {
-  color: #00B7FF;
+    color: #00B7FF;
 }
 
-.header{
-  height: 40vh;
+.header {
+    height: 40vh;
 }
 
 .mainText {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 20vh;
-  margin: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    margin: 0;
 }
 
-.text_config{
-  width: 60vw;
+.text_config {
+    margin-top: 10%;
+    width: 60vw;
 }
 
-.text_searcher{
-  width: 38vw;
-  padding: 1vw;
-  background-color: #7c7c7c;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: start;
-  align-items: start;
+.text_searcher {
+    margin-top: 5%;
+    width: 38vw;
+    padding: 1vw;
+    background-color: #7c7c7c;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+    align-items: start;
 }
 
-.text_searcher>span{
-  font-size: large;
-  margin-right: .5vw;
-  cursor: pointer;
+.text_searcher > span {
+    font-size: large;
+    margin-right: .5vw;
+    cursor: pointer;
 }
 
-.text_searcher>span:hover{
-  background-color: cornflowerblue;
+.text_searcher > span:hover {
+    background-color: cornflowerblue;
 }
 
-.control_panel{
-  display: flex;
-  align-items: start;
-  justify-content: space-between;
-  height: 60vh;
+.control_panel {
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    height: 60vh;
 }
 
-.current_phrase{
-  background-color: #00B7FF;
+.current_phrase {
+    background-color: #00B7FF;
+}
+
+.input_style {
+    margin: 2%;
+    width: 30%;
+    height: 10%;
+}
+
+
+/*===============================================================================*/
+/*===============================================================================*/
+/*===============================================================================*/
+
+.buttons {
+    overflow: hidden;
+}
+
+.buttons > div {
+    width: calc(50% - 40px);
+    padding: 20px;
+    float: left;
+    position: fixed;
+    bottom: 0;
+    top: 0;
+}
+
+.buttons .dark {
+    background: #000;
+    left: 50%;
+}
+
+.buttons a {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+}
+
+a#link {
+    position: absolute;
+    left: 20px;
+    bottom: 10px;
+    text-decoration: none;
+    color: #555;
+    font-weight: bold;
+}
+
+/*------------------------------------------------------*/
+/* BUTTONS */
+/*------------------------------------------------------*/
+
+.btn-mid {
+    cursor: pointer;
+    border-radius: 0px;
+    text-decoration: none;
+    padding: 14px 21px;
+    font-size: 13px;
+    line-height: 25px;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    letter-spacing: 3px;
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn:hover,
+input[type="submit"]:hover {
+    -webkit-transition: all .4s ease-in-out;
+    -moz-transition: all .4s ease-in-out;
+    -ms-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btn-white {
+    border: solid 2px #fff;
+    background: transparent;
+    color: #fff !important;
+}
+
+.btn-white:hover {
+    border: solid 2px #fff;
+    background: #fff;
+    color: #1f1f1f !important;
+}
+
+.btn-color {
+    background: transparent;
+}
+
+.btn-color:hover {
+    color: #fff;
 }
